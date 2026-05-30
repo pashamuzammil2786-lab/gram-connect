@@ -18,6 +18,10 @@ Many rural citizens are unaware of government schemes, eligibility criteria, req
 - Complaint and Feedback Module
 - Government Notifications and Updates
 
+
+#Git
+git clone https://code.swecha.org/sweety28/gram-connect.git
+
 ## Technology Stack
 
 ### Frontend
@@ -44,7 +48,63 @@ Many rural citizens are unaware of government schemes, eligibility criteria, req
 
 ## Project Architecture
 
-User → Frontend → Backend API → Database + AI Engine → Response
+User → Frontend → Backend API → Database + AI Engine → Response 
+
+gram-connect/
+│
+├── frontend/
+│   │
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Navbar.js
+│   │   │   ├── Hero.js
+│   │   │   ├── Chatbot.js
+│   │   │   ├── SchemeCard.js
+│   │   │   └── Footer.js
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Home.js
+│   │   │   ├── Search.js
+│   │   │   ├── Eligibility.js
+│   │   │   └── ChatbotPage.js
+│   │   │
+│   │   ├── App.js
+│   │   └── index.js
+│   │
+│   └── package.json
+│
+├── backend/
+│   │
+│   ├── app.py
+│   ├── routes/
+│   ├── models/
+│   ├── services/
+│   └── requirements.txt
+│
+├── database/
+│   │
+│   ├── schemes.db
+│   ├── scheme_data.csv
+│   └── schema.sql
+│
+├── ai-rag/
+│   │
+│   ├── documents/
+│   ├── embeddings/
+│   ├── vectorstore/
+│   ├── chatbot.py
+│   └── rag_pipeline.py
+│
+├── testing/
+│   │
+│   ├── test_cases.md
+│   └── bug_reports.md
+│
+├── README.md
+├── CONTRIBUTORS.md
+├── USER_MANUAL.md
+└── AGENTS.md
 
 ## Future Enhancements
 
