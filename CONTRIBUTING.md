@@ -1,6 +1,7 @@
 # Contributing to Gram Connect
 
 Thank you for contributing to Gram Connect. This project helps citizens discover government welfare schemes based on their personal profile.
+Please follow the repository's existing style and documentation conventions when making updates.
 
 ## Project Goal
 

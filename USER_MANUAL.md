@@ -4,8 +4,7 @@
 
 Gram Connect is a government scheme eligibility finder. It helps citizens discover welfare schemes based on profile details such as age, gender, occupation, annual income, state, education, and disability status.
 
-The project is mainly designed to support rural citizens who may not know which government schemes they can apply for.
-
+The project is mainly designed to support rural citizens who may not know which government schemes they can apply for.The manual is kept up to date with the current Streamlit implementation.
 ## Purpose of the App
 
 Many citizens miss government benefits because they do not know:

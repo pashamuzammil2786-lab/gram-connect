@@ -7,6 +7,7 @@ This file provides guidance for developers and AI agents working on Gram Connect
 Gram Connect is a Streamlit-based government scheme eligibility finder. It compares citizen profile information with scheme rules stored in a CSV dataset.
 
 The main goal is to help rural citizens discover welfare schemes that may apply to them.
+This guidance file is also used for AI agent support during development.
 
 ## Current Architecture
 
