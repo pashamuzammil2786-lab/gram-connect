@@ -1,30 +1,68 @@
 import streamlit as st
 
-st.title("🎯 Eligible Schemes")
+from backend.eligibility import (
+    check_eligibility,
+    explain_near_matches
+)
+
+st.title("🎯 Eligible Government Schemes")
 
 if "user_data" not in st.session_state:
     st.warning("Please register first.")
+    st.stop()
+
+user_data = st.session_state["user_data"]
+
+eligible_schemes = check_eligibility(user_data)
+
+if eligible_schemes:
+
+    st.success(
+        f"Found {len(eligible_schemes)} eligible scheme(s) for you."
+    )
+
+    for scheme in eligible_schemes:
+
+        st.subheader(f"📌 {scheme['scheme_name']}")
+
+        st.write("### Description")
+        st.write(scheme["description"])
+
+        st.write("### Benefits")
+        st.write(scheme["benefits"])
+
+        st.write("### Why You Are Eligible")
+
+        for reason in scheme["reasons"]:
+            st.write(f"✅ {reason}")
+
+        st.write("### Application Process")
+        st.write(scheme["application_process"])
+
+        if scheme["application_link"]:
+            st.markdown(
+                f"🔗 [Apply Here]({scheme['application_link']})"
+            )
+
+        st.markdown("---")
+
 else:
 
-    st.success("Based on your profile")
+    st.error("No exact matches found.")
 
-    schemes = [
-        {
-            "name": "PM Kisan",
-            "benefit": "₹6000 per year"
-        },
-        {
-            "name": "Ayushman Bharat",
-            "benefit": "₹5 Lakh Health Insurance"
-        },
-        {
-            "name": "PM Awas Yojana",
-            "benefit": "Housing Assistance"
-        }
-    ]
+    st.write("### Closest Matching Schemes")
 
-    for scheme in schemes:
+    near_matches = explain_near_matches(user_data)
 
-        st.subheader(scheme["name"])
-        st.write("Benefit:", scheme["benefit"])
+    for scheme in near_matches:
+
+        st.subheader(f"📌 {scheme['scheme_name']}")
+
+        st.write(scheme["description"])
+
+        st.write("Requirements not met:")
+
+        for item in scheme["missing"]:
+            st.write(f"❌ {item}")
+
         st.markdown("---")

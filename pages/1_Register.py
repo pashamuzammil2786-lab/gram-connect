@@ -41,14 +41,22 @@ state = st.selectbox(
     ]
 )
 
+caste = st.selectbox(
+    "Caste Category",
+    [
+        "General",
+        "SC",
+        "ST",
+        "OBC"
+    ]
+)
+
 education = st.selectbox(
     "Education",
     [
-        "No Education",
-        "Primary",
-        "Secondary",
-        "Graduate",
-        "Post Graduate"
+        "School",
+        "Higher Education",
+        "Any"
     ]
 )
 
@@ -59,15 +67,16 @@ disability = st.radio(
 
 if st.button("Check Eligibility"):
 
-    st.session_state.user_data = {
+    st.session_state["user_data"] = {
         "name": name,
         "age": age,
         "gender": gender,
         "occupation": occupation,
         "income": income,
         "state": state,
+        "caste": caste,
         "education": education,
         "disability": disability
     }
 
-    st.success("Details Saved Successfully")
+    st.success("✅ Details Saved Successfully")

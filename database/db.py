@@ -1,4 +1,6 @@
 import sqlite3
+import pandas as pd
+
 
 def create_database():
     conn = sqlite3.connect("gram_ai.db")
@@ -18,6 +20,7 @@ def create_database():
     conn.commit()
     conn.close()
 
+
 def save_user(name, age, gender, occupation, income):
     conn = sqlite3.connect("gram_ai.db")
     cursor = conn.cursor()
@@ -30,5 +33,15 @@ def save_user(name, age, gender, occupation, income):
 
     conn.commit()
     conn.close()
+
+
+def get_schemes():
+    try:
+        df = pd.read_csv("data/schemes.csv")
+        return df.to_dict(orient="records")
+    except Exception as e:
+        print("Error loading schemes:", e)
+        return []
+
 
 create_database()
